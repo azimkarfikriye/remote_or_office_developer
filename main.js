@@ -1,0 +1,46 @@
+const correctAnswers = ['E', 'E', 'E', 'E'];
+const form = document.querySelector('.question-form');
+const result = document.querySelector('.result');
+const scoreDisplay = document.getElementById('score');
+const clearButton = document.querySelector('.btn-clear');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let score = 0;
+    const userAnswers = [
+        document.querySelector('input[name="q1"]:checked').value,
+        document.querySelector('input[name="q2"]:checked').value,
+        document.querySelector('input[name="q3"]:checked').value,
+        document.querySelector('input[name="q4"]:checked').value
+    ];
+
+    userAnswers.forEach((answer, index) => {
+        if (answer === correctAnswers[index]) {
+            score += 25;
+        }
+    });
+
+    
+    result.classList.remove('d-none');
+    // Clear Butonu 
+clearButton.addEventListener('click', () => {
+    form.reset();
+    result.classList.add('d-none'); 
+    scoreDisplay.textContent = "0%"; 
+});
+
+    let puan=0;
+    const bastir= setInterval(() => {
+        scoreDisplay.textContent = `${puan}%`;
+        if(puan == score) 
+            {
+                clearInterval(bastir);
+            } 
+            else{
+                puan++;
+            }
+    }, 10);
+     
+});
+
