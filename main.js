@@ -30,15 +30,17 @@ form.addEventListener('submit', (e) => {
     
     result.classList.remove('d-none');
 
-    // Sayfanın başına kaydırma aksiyonu...
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Clear Butonu 
-clearButton.addEventListener('click', () => {
-    form.reset();
-    result.classList.add('d-none'); 
-    scoreDisplay.textContent = "0%"; 
-});
+// clearButton.addEventListener('click', () => {
+//     form.reset();
+//     result.classList.add('d-none'); 
+//     scoreDisplay.textContent = "0%";
+
+// });
+
 
     let puan=0;
     const bastir= setInterval(() => {
@@ -53,4 +55,19 @@ clearButton.addEventListener('click', () => {
     }, 10);
      
 });
+
+clearButton.addEventListener('click', () => {
+    form.reset();
+    result.classList.add('d-none');
+    scoreDisplay.textContent = "0%";
+
+    // Radio buton seçimlerini temizledik..
+    for (let i = 1; i <= 10; i++) {
+        const radioButtons = document.querySelectorAll(input[name="q${i}"]);
+        radioButtons.forEach(radio => {
+            radio.checked = false;
+        });
+    }
+});
+
 
