@@ -1,4 +1,4 @@
-const correctAnswers = ['E', 'E', 'E', 'E'];
+const correctAnswers = ['E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E' ];
 const form = document.querySelector('.question-form');
 const result = document.querySelector('.result');
 const scoreDisplay = document.getElementById('score');
@@ -12,17 +12,27 @@ form.addEventListener('submit', (e) => {
         document.querySelector('input[name="q1"]:checked').value,
         document.querySelector('input[name="q2"]:checked').value,
         document.querySelector('input[name="q3"]:checked').value,
-        document.querySelector('input[name="q4"]:checked').value
+        document.querySelector('input[name="q4"]:checked').value,
+        document.querySelector('input[name="q5"]:checked').value,
+        document.querySelector('input[name="q6"]:checked').value,
+        document.querySelector('input[name="q7"]:checked').value,
+        document.querySelector('input[name="q8"]:checked').value,
+        document.querySelector('input[name="q9"]:checked').value,
+        document.querySelector('input[name="q10"]:checked').value
     ];
 
     userAnswers.forEach((answer, index) => {
         if (answer === correctAnswers[index]) {
-            score += 25;
+            score += 10;
         }
     });
 
     
     result.classList.remove('d-none');
+
+    // Sayfanın başına kaydırma aksiyonu...
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     // Clear Butonu 
 clearButton.addEventListener('click', () => {
     form.reset();

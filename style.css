@@ -14,7 +14,25 @@ header {
     justify-content: center;
     align-items: center; 
 }
-.card, .card-questions {
+.card {
+    background-color: white;
+    width: 700px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    position: relative;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #683ab7;
+}
+.card-questions {
     background-color: white;
     width: 700px;
     padding: 10px;
@@ -48,28 +66,74 @@ header {
 .d-none {
     display: none;
 }
-/* Responsive uyarlama  */
+#switch {
+    color: blue;
+}
+#cloud {
+    margin-left: 300px;
+    font-size: 20px;
+}
+#footer-links1 {
+    text-decoration: underline;
+    cursor: pointer;
+}
+#footer-links2 {
+    text-decoration: underline;
+    cursor: pointer;
+}
+#formify-form {
+    cursor: pointer;
+}
+
+/* responsive uyarlaması */
 @media (max-width: 768px) {
     .card, .card-questions {
-        width: 90%;
-        padding: 15px;
+        width: 90%; 
+        padding: 15px; 
     }
 
     .btn-submit, .btn-clear {
-        width: 80px;
-        font-size: 14px;
+        width: 100px; 
+        font-size: 14px; 
+    }
+
+    #cloud {
+        margin-left: 0; 
+        font-size: 18px;
+    }
+    .footer-container p {
+        display: block; 
+        width: 100%; 
+        text-align: center; 
+        font-size: 14px; 
+    }
+
+    #formify-form {
+        text-align: center; 
     }
 }
 
 @media (max-width: 480px) {
     .card, .card-questions {
-        width: 95%;
-        padding: 10px;
+        width: 95%; 
+        padding: 10px; 
     }
 
     .btn-submit, .btn-clear {
-        width: 70px;
+        width: 70px; 
         height: 35px;
-        font-size: 12px;
+        font-size: 12px; 
+    }
+
+    #cloud {
+        margin-left: 0;
+        font-size: 16px;
+    }
+    .footer-container p {
+        font-size: 12px; 
+    }
+
+    #formify-form {
+        font-size: 14px; 
     }
 }
